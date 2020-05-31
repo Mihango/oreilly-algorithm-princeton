@@ -23,12 +23,13 @@ public class UnionTest {
 //         System.out.println("Components = " + quickFind.getCount() + " >>> " + Arrays.toString(quickFind.getIds()));
 //        System.out.println("Node 3 is in component  = " + quickFind.find(3));
 
-        WeightedQuickUnion weightedQuickUnion = new WeightedQuickUnion(5);
+//        WeightedQuickUnion weightedQuickUnion = new WeightedQuickUnion(5);
+        WeightedPathCompressed weightedQuickUnion = new WeightedPathCompressed(5);
         weightedQuickUnion.union(0, 1);
         weightedQuickUnion.union(2, 4);
         System.out.println("Count >> " + weightedQuickUnion.getCount());
         weightedQuickUnion.union(3, 4);
-        weightedQuickUnion.union(3, 0);
+//        weightedQuickUnion.union(3, 0);
         System.out.println("ids >>> " + Arrays.toString(weightedQuickUnion.getIds()));
         System.out.println("size>>> " + Arrays.toString(weightedQuickUnion.getWeight()));
 
