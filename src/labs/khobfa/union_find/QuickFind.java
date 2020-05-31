@@ -12,6 +12,10 @@ public class QuickFind {
         }
     }
 
+    public int find(int v) {
+        return ids[v];
+    }
+
     public boolean isConnected(int v, int w) {
         return ids[v] == ids[w];
     }
