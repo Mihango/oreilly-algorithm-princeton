@@ -5,4 +5,5 @@ public interface Graph {
     Iterable<Integer> adjacent(int vertex) throws Exception;
     int vertices();
     int edges();
+    void validate(int x) throws Exception;
 }

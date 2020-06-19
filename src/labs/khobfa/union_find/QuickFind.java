@@ -7,7 +7,7 @@ public class QuickFind {
     public QuickFind(int vertices) {
         this.ids = new int[vertices];
         this.count = vertices;
-        for (int i =0; i < ids.length; i++) {
+        for (int i = 0; i < ids.length; i++) {
             ids[i] = i;
         }
     }
@@ -26,7 +26,7 @@ public class QuickFind {
 
         if(id1 == id2) return;
 
-        for (int i =0; i< ids.length; i++) {
+        for (int i = 0; i < ids.length; i++) {
             if(ids[i] == id1)
                 ids[i] = id2;
         }

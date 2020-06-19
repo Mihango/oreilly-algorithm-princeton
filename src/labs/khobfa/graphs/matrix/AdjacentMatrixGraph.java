@@ -54,7 +54,8 @@ public class AdjacentMatrixGraph implements Graph {
         return edges;
     }
 
-    private void validate(int vertex) throws Exception {
+    @Override
+    public void validate(int vertex) throws Exception {
         if(vertex >= 0 && vertex < this.vertices) return;
         throw new Exception("Not valid node");
     }

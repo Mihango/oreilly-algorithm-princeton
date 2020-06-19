@@ -1,5 +1,5 @@
 package labs.khobfa.graphs;
 
 public interface DFS {
-    void dfs(Graph graph, int i);
+    Iterable<Integer> pathTo(int node);
 }

@@ -1,29 +1,29 @@
-package labs.khobfa.graphs.matrix;
+package labs.khobfa.graphs.list;
 
 import labs.khobfa.graphs.DFS;
 import labs.khobfa.graphs.Graph;
 
 import java.util.Stack;
 
-public class MatrixDFS implements DFS {
+public class ListDFS implements DFS {
     private final int[] edgeTo;
     private final boolean[] visited;
     private final int source;
 
-    public MatrixDFS(Graph graph, int source) throws Exception {
+    public ListDFS(Graph graph, int source) throws Exception {
         this.edgeTo = new int[graph.vertices()];
         this.visited = new boolean[graph.vertices()];
         this.source = source;
         dfs(graph, source);
     }
 
-    private void dfs(Graph graph, int source) throws Exception {
-        graph.validate(source);
-        visited[source] = true;
+    private void dfs(Graph graph, int node) throws Exception {
+        graph.validate(node);
+        visited[node] = true;
 
-        for (int i : graph.adjacent(source)) {
+        for (int i : graph.adjacent(node)) {
             if(!visited[i]) {
-                edgeTo[i] = source;
+                edgeTo[i] = node;
                 dfs(graph, i);
             }
         }
@@ -33,7 +33,6 @@ public class MatrixDFS implements DFS {
     public Iterable<Integer> pathTo(int node) {
         Stack<Integer> stack = new Stack<>();
         stack.push(node);
-
         while (node != source) {
             stack.push(edgeTo[node]);
             node = edgeTo[node];
