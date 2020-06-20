@@ -14,7 +14,7 @@ public class ResizingArrayQueue<T> implements Queue<T> {
 
     @Override
     public void enqueue(T item) {
-        if (size() == queue.length) resize(queue.length * 2);
+        if (size() == queue.length) resize(size() * 2);
         queue[tail++] = item;
     }
 
