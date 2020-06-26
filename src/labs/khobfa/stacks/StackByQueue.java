@@ -2,6 +2,7 @@ package labs.khobfa.stacks;
 
 import labs.khobfa.queues.LinkedQueue;
 import labs.khobfa.queues.Queue;
+import labs.khobfa.queues.ResizingArrayQueue;
 
 public class StackByQueue<T> implements Stack<T> {
 
@@ -10,8 +11,8 @@ public class StackByQueue<T> implements Stack<T> {
     private int N;
 
     public StackByQueue() {
-        inQueue = new LinkedQueue<>();
-        outQueue = new LinkedQueue<>();
+        inQueue = new ResizingArrayQueue<>();
+        outQueue = new ResizingArrayQueue<>();
     }
 
 

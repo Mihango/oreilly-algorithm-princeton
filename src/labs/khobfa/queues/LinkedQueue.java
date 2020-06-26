@@ -1,6 +1,8 @@
 package labs.khobfa.queues;
 
-public class LinkedQueue<T> implements Queue<T> {
+import java.util.Iterator;
+
+public class LinkedQueue<T> implements Queue<T>, Iterable<T> {
     private Node first;
     private Node last;
     private int N;
@@ -46,16 +48,40 @@ public class LinkedQueue<T> implements Queue<T> {
         return first == null;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<T> {
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T node = current.item;
+            current = current.next;
+            return node;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedQueue<String> queue = new LinkedQueue<>();
         queue.enqueue("Hello");
         queue.enqueue("World");
         queue.enqueue("of");
         queue.enqueue("Java");
-        System.out.println("\n Queue size >>>> " + queue.size());
-        while (!queue.isEmpty())
-            System.out.print(queue.dequeue() + " ");
-        System.out.println("\n Queue size >>>> " + queue.size());
+        System.out.println("\nQueue size >>>> " + queue.size());
+//        while (!queue.isEmpty())
+//            System.out.print(queue.dequeue() + " ");
+//        System.out.println("\n Queue size >>>> " + queue.size());
+
+        for (String n : queue)
+            System.out.println(n);
      }
 
 }
